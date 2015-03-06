@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'frameless',
+			'database'  => 'connectfour',
 			'username'  => 'root',
 			'password'  => 'cash1024',
 			'charset'   => 'utf8',

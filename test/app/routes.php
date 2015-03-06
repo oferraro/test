@@ -18,7 +18,11 @@ Route::get('/', function()
 
 
 
-Route::get('/hello', 'HomeController@listing');
-Route::get('/hello/{id}', 'HomeController@edit');
+Route::get('/connectfour', 'HomeController@listing');
+Route::post('/connectfour', 'HomeController@login');
+Route::get('/connectfour/play', 'HomeController@play');
+Route::post('/connectfour/makeMove', 'HomeController@makemove');
+
+Route::get ('/resetgame', 'HomeController@resetgame');
 
 Route::resource('/test', 'TestController');
