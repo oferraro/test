@@ -20,4 +20,14 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+	public function listing() {
+		echo "list";
+	}
+	
+	public function edit($theID) {
+		$results = DB::select('select * from sections where idSection = ?', [$theID]);
+		$data = ['id' => $theID, 'results' => $results];
+		return View::make('test', $data);
+	}
+
 }

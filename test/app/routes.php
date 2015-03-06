@@ -15,3 +15,10 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+
+
+Route::get('/hello', 'HomeController@listing');
+Route::get('/hello/{id}', 'HomeController@edit');
+
+Route::resource('/test', 'TestController');
