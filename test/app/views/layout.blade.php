@@ -3,20 +3,17 @@
 	<head>
 		<title>Header Text</title>
 		
-		<script type="text/javascript" src="<?php echo URL::to('/'); ?>/assets/js/jquery-last.min.js"></script>
-
-		
-		
 	</head>
 	<body>
 		@yield ('content')
 	</body>	
 </html>
+
 <script src="<?php echo URL::to('/'); ?>/assets/js/jquery-last.min.js"></script>
-<script src="http://<?php echo $_SERVER('HTTP_HOST'); ?>:3000/socket.io/socket.io.js"></script>
+<script src="http://<?php echo $_SERVER['HTTP_HOST']; ?>:3000/socket.io/socket.io.js"></script>
 <script>   
 	var connectionStatus = false; 
-		socket = io.connect("http://<?php echo $_SERVER('HTTP_HOST'); ?>:3000");
+		socket = io.connect("http://<?php echo $_SERVER['HTTP_HOST']; ?>:3000");
 		socket.on("connect", function () {
 			connectionStatus = true;
 		});
