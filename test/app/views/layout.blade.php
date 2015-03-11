@@ -12,8 +12,8 @@
 		@yield ('content')
 	</body>	
 </html>
-<script src="http://localhost/nodejs/js/jquery-last.min.js"></script>
-<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script src="http://<?php echo URL::to('/'); ?>/assets/js/nodejs/js/jquery-last.min.js"></script>
+<script src="http://<?php echo URL::to('/'); ?>:3000/socket.io/socket.io.js"></script>
 <script>   
 	var connectionStatus = false; 
 		socket = io.connect("http://localhost:3000");
