@@ -12,11 +12,11 @@
 		@yield ('content')
 	</body>	
 </html>
-<script src="http://<?php echo URL::to('/'); ?>/assets/js/nodejs/js/jquery-last.min.js"></script>
-<script src="http://<?php echo URL::to('/'); ?>:3000/socket.io/socket.io.js"></script>
+<script src="<?php echo URL::to('/'); ?>/assets/js/nodejs/js/jquery-last.min.js"></script>
+<script src="http://<?php echo $_SERVER('HTTP_HOST'); ?>:3000/socket.io/socket.io.js"></script>
 <script>   
 	var connectionStatus = false; 
-		socket = io.connect("http://<?php echo URL::to('/'); ?>:3000");
+		socket = io.connect("http://<?php echo $_SERVER('HTTP_HOST'); ?>:3000");
 		socket.on("connect", function () {
 			connectionStatus = true;
 		});
