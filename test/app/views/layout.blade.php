@@ -16,7 +16,7 @@
 <script src="http://<?php echo URL::to('/'); ?>:3000/socket.io/socket.io.js"></script>
 <script>   
 	var connectionStatus = false; 
-		socket = io.connect("http://localhost:3000");
+		socket = io.connect("http://<?php echo URL::to('/'); ?>:3000");
 		socket.on("connect", function () {
 			connectionStatus = true;
 		});
