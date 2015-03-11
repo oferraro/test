@@ -12,7 +12,20 @@
 		@yield ('content')
 	</body>	
 </html>
-<script>
+<script src="http://localhost/nodejs/js/jquery-last.min.js"></script>
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script>   
+	var connectionStatus = false; 
+		socket = io.connect("http://localhost:3000");
+		socket.on("connect", function () {
+			connectionStatus = true;
+		});
+		socket.on("mensaje_servidor", function (message) {
+			var res = jQuery.parseJSON(message);
+//			console.log(message + " change " + "#field_"+res.x+"_"+res.y + " to " + res.color);
+			$("#field_"+res.x+"_"+res.y).removeClass();
+			$("#field_"+res.x+"_"+res.y).addClass(res.color);
+		});
 	
 function makeMove (userID, x, y) {
 	$.ajax({
@@ -25,7 +38,7 @@ function makeMove (userID, x, y) {
 			var res = jQuery.parseJSON(msg);
 			$('#message').html ('');
 			if (res.error == 1) {
-				$('#message').html ('<div style="color:red">Error:</div>');
+				$('#message').html ('<span style="color:red">Error:</span> ');
 			} else {
 				if (user == 1) {
 					color 	= 'red';
@@ -36,6 +49,9 @@ function makeMove (userID, x, y) {
 				}
 				$("#field_"+res.next+"_"+y).removeClass(remove);
 				$("#field_"+res.next+"_"+y).addClass(color);
+				
+				var msg = JSON.stringify({"color":color,"x":res.next,"y":y});
+				socket.emit("mensaje_cliente", msg);
 			}
 			$('#message').append (res.message);
 			if (res.winner != 0) {
@@ -52,7 +68,7 @@ function makeMove (userID, x, y) {
 			val = val.replace('field_','');
 			val = val.split('_');
 			makeMove(user, val[0], val[1]);
-			console.log('send move ' + val[0] + ' ' + val[1]);
+//			console.log('send move ' + val[0] + ' ' + val[1]);
 		}); 
 <?php
 	endif; ?>
