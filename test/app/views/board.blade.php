@@ -19,6 +19,7 @@
 	<th></th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th>
 </tr>
 <?php 
+	//echo "<pre>"; print_r($board); echo "</pre>";
 	for ($i= 0; $i< 10; $i++): ?>
 		<th><?php echo $i; ?></th>
 <?php

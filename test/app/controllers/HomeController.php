@@ -95,7 +95,7 @@ public $turn;
 	
 	public function checkWinnerHor ($user) {
 		$winner = 0;
-			for ($x=0;$x<9;$x++) {
+			for ($x=0;$x<=9;$x++) {
 				for ($y = 0; $y<5; $y++) {
 					$col = $y;
 					if ($this->board[$x][$col++] == $user &&  
@@ -110,8 +110,8 @@ public $turn;
 	}
 	public function checkWinnerVer ($user) {
 		$winner = 0;
-			for ($y=0;$y<9;$y++) {
-				for ($x = 0; $x<5; $x++) {
+			for ($y=0;$y<=9;$y++) {
+				for ($x = 0; $x<=5; $x++) {
 					$row = $x;
 					if ($this->board[$row++][$y] == $user &&  
 						$this->board[$row++][$y] == $user &&  
